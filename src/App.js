@@ -9,17 +9,16 @@ class App extends React.Component {
       tasks: [],
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleSubmit() {
-    console.log("hey");
+  handleClick() {
     let text = document.getElementById("newTask").value;
-    console.log(text);
     let newTasks = this.state.tasks;
     if (text) {
       newTasks.push(text);
     }
+    document.getElementById("newTask").value = "";
     this.setState({
       text: "",
       tasks: newTasks,
@@ -32,9 +31,7 @@ class App extends React.Component {
         <div className="App"> Task App!</div>
         <div className="New">
           <input name="newTask" id="newTask" placeholder="New Task"></input>
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <button onClick={this.handleClick}>Submit</button>
         </div>
         <div>
           <OverView tasks={this.state.tasks} />

@@ -11,7 +11,8 @@ class OverView extends React.Component {
   render() {
     const tasks = [];
     this.props.tasks.forEach((task) => {
-      tasks.push(<SingleTask task={task} />);
+      let key = Math.floor(Math.random() * 1000000000);
+      tasks.push(<SingleTask key={key} task={task} />);
     });
     return <div>{tasks}</div>;
   }
